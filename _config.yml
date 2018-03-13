@@ -100,13 +100,10 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "简书·BY",
-        href: "http://www.jianshu.com/u/e71990ada2fd"
+        title: "简书·WICKII",
+        href: "https://www.jianshu.com/u/dce56a33daf1"
     },{
-        title: "Apple",
-        href: "https://apple.com"
-    },{
-        title: "Apple Developer",
-        href: "https://developer.apple.com/"
+        title: "简书·lifesmily",
+        href: "https://www.jianshu.com/u/e87b13f1f05c"
     }
 ]
