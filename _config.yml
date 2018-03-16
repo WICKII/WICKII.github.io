@@ -105,5 +105,9 @@ friends: [
     },{
         title: "简书·lifesmily",
         href: "https://www.jianshu.com/u/e87b13f1f05c"
+    }，{
+        title: "Yuan Blog",
+        href: "https://dodoyuan.github.io/"
     }
+
 ]
