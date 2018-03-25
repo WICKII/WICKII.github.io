@@ -32,8 +32,10 @@ In this case, no transaction is done, i.e. max profit = 0.
 ## 思路
 分析题目，仅仅交易一次，求得最优交易的策略。大家都知道最简单的交易策略就是低进高出，且数组顺序按照时间顺序排列。最自然的想法就是找到数组中的最大值和最小值（且要求最大值出现在最小值之后），然后做个差就好了。<br>
 算法题嘛，一般来讲最直观的想法往往**Time Limit Exceeded**。这种想当然的O(n<sup>2</sup>)时间复杂度的算法一定会超时，所以我们尝试其他的可以不嵌套循环的做法。  
-进一步分析，画出折线图如下
-![ava](https://leetcode.com/media/original_images/121_profit_graph.png)
+进一步分析，画出折线图如下  
+
+![ava](https://leetcode.com/media/original_images/121_profit_graph.png)  
+
 可见我们需要用到两个变量，一个是valley，一个是maxprofit，一次循环遍历就可以搞定。
 ## Solution
 
