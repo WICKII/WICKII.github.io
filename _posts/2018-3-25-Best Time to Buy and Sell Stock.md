@@ -4,7 +4,7 @@ title:      Best Time to Buy and Sell Stock
 subtitle:   
 date:       2018-3-25
 author:     WICKII
-header-img: post-bg-programming-min
+header-img: post-bg-programming-min.jpg
 catalog: true
 tags:
     - LeetCode 
