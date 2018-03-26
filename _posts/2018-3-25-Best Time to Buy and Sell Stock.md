@@ -59,7 +59,7 @@ class Solution:
                 profit=prices[i]-valley
         return profit
 ```
-这样，循环一次，每次循环干两件事，就OK了。
+这样，循环一次，干两件事，就OK了。
 
 # Best Time to Buy and Sell Stock II
 ## Description 
@@ -104,9 +104,35 @@ Design an algorithm to find the maximum profit. You may complete as many transac
     prices = [1, 2, 3, 0, 2]
     maxProfit = 3
     transactions = [buy, sell, cooldown, buy, sell]
+##思路
+这道题看起来便没有那么简单了，由于涉及交易之后的cooldown。一开始也是没有思路的，在[这道题的discussion](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss/75928/Share-my-DP-solution-(By-State-Machine-Thinking))中，看到了用状态机来解决该问题的方案，觉得脑袋上的灯泡都亮了啊，它使我想起了本科学习数电时候的点点滴滴，啧啧啧...<br>
+想不出来这么妙的方法，那我还是翻译一下大神的解题思路吧。<br>
+[!x2](http://i.imgur.com/wvR4TN8.png?1)
 
+## Solution
 
-
+```python
+class Solution:
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        n=len(prices)
+        if n<2:
+            return 0
+        s0_prev=0
+        s1_prev=-prices[0]
+        s2_prev=0
+        for i in range(n):
+            s0=max(s2_prev,s0_prev)
+            s1=max(s1_prev,s0_prev-prices[i])
+            s2=s1_prev+prices[i]
+            s2_prev=s2
+            s1_prev=s1
+            s0_prev=s0
+        return max(s0,s2)
+```   
 
 
 
