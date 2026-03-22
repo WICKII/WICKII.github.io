@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import Hero from "../components/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getAllTags, getPostPath, getSortedPosts } from "../utils/blog";
+
+const posts = getSortedPosts(await getCollection("blog"));
+const tags = getAllTags(posts);
+---
+
+<BaseLayout title="Tags" description="Notes grouped by topic." image="/img/tag-bg.jpg">
+  <Hero title="Tags" description="Notes grouped by topic." image="/img/tag-bg.jpg" />
+
+  <section class="tags-layout">
+    <div class="tag-cloud">
+      <h2>Tag cloud</h2>
+      <div class="tag-cloud__list">
+        {tags.map((entry) => (
+          <a href={`#${entry.slug}`}>
+            {entry.tag}
+            <span class="tag-cloud__count">{entry.posts.length}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    {tags.map((entry) => (
+      <section class="tag-group" id={entry.slug}>
+        <div class="tag-group__header">
+          <h2>{entry.tag}</h2>
+          <span class="tag-cloud__count">{entry.posts.length} posts</span>
+        </div>
+        {entry.posts.map((post) => (
+          <article class="tag-post">
+            <p class="post-meta">{post.data.date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
+            <h3><a href={getPostPath(post.id)}>{post.data.title}</a></h3>
+            {post.data.subtitle && <p class="post-card__subtitle">{post.data.subtitle}</p>}
+          </article>
+        ))}
+      </section>
+    ))}
+  </section>
+</BaseLayout>

@@ -1,0 +1,43 @@
+---
+import { siteConfig } from "../site.config";
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+{siteConfig.gitalk.enabled && (
+  <>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+    <div class="comments-shell shell">
+      <div id="gitalk-container"></div>
+    </div>
+    <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+    <script
+      is:inline
+      define:vars={{
+        clientID: siteConfig.gitalk.clientID,
+        clientSecret: siteConfig.gitalk.clientSecret,
+        repo: siteConfig.gitalk.repo,
+        owner: siteConfig.gitalk.owner,
+        admin: siteConfig.gitalk.admin,
+        distractionFreeMode: siteConfig.gitalk.distractionFreeMode,
+        issueId: id
+      }}
+    >
+      if (window.Gitalk) {
+        new window.Gitalk({
+          clientID,
+          clientSecret,
+          repo,
+          owner,
+          admin: [admin],
+          distractionFreeMode,
+          id: issueId
+        }).render("gitalk-container");
+      }
+    </script>
+  </>
+)}

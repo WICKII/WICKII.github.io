@@ -1,0 +1,66 @@
+---
+import { getCollection, render } from "astro:content";
+import Comments from "../../../../components/Comments.astro";
+import Hero from "../../../../components/Hero.astro";
+import Sidebar from "../../../../components/Sidebar.astro";
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import { getPostPath, getPostSegments, getSortedPosts, slugifyTag } from "../../../../utils/blog";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => {
+    const [year, month, day, slug] = getPostSegments(post.id);
+    return {
+      params: { year, month, day, slug },
+      props: { post, allPosts: posts }
+    };
+  });
+}
+
+const { post, allPosts } = Astro.props;
+const sortedPosts = getSortedPosts(allPosts);
+const currentIndex = sortedPosts.findIndex((entry) => entry.id === post.id);
+const previousPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
+const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
+const { Content } = await render(post);
+const meta = [
+  `Posted by ${post.data.author ?? "WICKII"}`,
+  post.data.date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
+].join(" · ");
+---
+
+<BaseLayout title={post.data.title} description={post.data.subtitle || post.body.slice(0, 120)} image={`/${post.data["header-img"] ?? "img/desk1.jpg"}`}>
+  <Hero
+    title={post.data.title}
+    description={post.data.subtitle}
+    image={`/${post.data["header-img"] ?? "img/desk1.jpg"}`}
+    eyebrow={post.data.tags[0]}
+    meta={meta}
+    compact={true}
+  />
+
+  <section class="post-layout">
+    <div class="post-shell">
+      {post.data.tags.length > 0 && (
+        <div class="post-header">
+          <div class="post-tags">
+            {post.data.tags.map((tag) => <a href={`/tags/#${slugifyTag(tag)}`}>{tag}</a>)}
+          </div>
+        </div>
+      )}
+
+      <article>
+        <Content />
+      </article>
+
+      <nav class="post-navigation" aria-label="Post navigation">
+        {previousPost ? <a href={getPostPath(previousPost.id)}>← {previousPost.data.title}</a> : <span></span>}
+        {nextPost ? <a href={getPostPath(nextPost.id)}>{nextPost.data.title} →</a> : <span></span>}
+      </nav>
+    </div>
+
+    <Sidebar posts={sortedPosts} />
+  </section>
+
+  <Comments id={getPostPath(post.id)} />
+</BaseLayout>

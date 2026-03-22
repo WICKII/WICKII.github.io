@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import Hero from "../components/Hero.astro";
+import PostCard from "../components/PostCard.astro";
+import Sidebar from "../components/Sidebar.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../site.config";
+import { getSortedPosts } from "../utils/blog";
+
+const posts = getSortedPosts(await getCollection("blog"));
+---
+
+<BaseLayout title="Blog" description="Thoughts on RF engineering, hardware, work, and life.">
+  <Hero
+    title="Notes on engineering and becoming."
+    description="A static blog rebuilt with Astro, where RF work notes, hardware stories, and personal essays can live in one calmer system."
+    image={siteConfig.heroImage}
+    eyebrow="WICKII Blog"
+  />
+
+  <section class="page-grid">
+    <div class="page-main">
+      <div class="post-list">
+        {posts.map((post) => <PostCard post={post} />)}
+      </div>
+    </div>
+    <Sidebar posts={posts} />
+  </section>
+</BaseLayout>

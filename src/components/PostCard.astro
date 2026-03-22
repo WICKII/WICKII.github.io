@@ -1,0 +1,21 @@
+---
+import type { BlogEntry } from "../utils/blog";
+import { getPostPath } from "../utils/blog";
+
+interface Props {
+  post: BlogEntry;
+}
+
+const { post } = Astro.props;
+---
+
+<article class="post-card">
+  <div class="post-card__meta">
+    <span>{post.data.date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
+    {post.data.tags.length > 0 && <span>{post.data.tags.join(" · ")}</span>}
+  </div>
+  <h2><a href={getPostPath(post.id)}>{post.data.title}</a></h2>
+  {post.data.subtitle && <p class="post-card__subtitle">{post.data.subtitle}</p>}
+  <p>{post.body.replace(/[#>*`[\]\n]/g, " ").replace(/\s+/g, " ").trim().slice(0, 180)}...</p>
+  <a class="post-card__link" href={getPostPath(post.id)}>Read article</a>
+</article>

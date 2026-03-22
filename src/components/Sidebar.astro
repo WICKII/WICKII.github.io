@@ -1,0 +1,37 @@
+---
+import type { BlogEntry } from "../utils/blog";
+import { getAllTags } from "../utils/blog";
+import { siteConfig } from "../site.config";
+
+interface Props {
+  posts: BlogEntry[];
+}
+
+const { posts } = Astro.props;
+const featuredTags = getAllTags(posts).filter((item) => item.posts.length >= 2);
+---
+
+<aside class="sidebar-card">
+  <img class="sidebar-card__avatar" src={siteConfig.avatar} alt={siteConfig.title} />
+  <h2>About</h2>
+  <p>{siteConfig.sidebarDescription}</p>
+  <a class="sidebar-card__about-link" href="/about/">More about me</a>
+
+  {featuredTags.length > 0 && (
+    <div class="sidebar-card__section">
+      <h3>Featured tags</h3>
+      <div class="tag-list">
+        {featuredTags.map((item) => <a href={`/tags/#${item.slug}`}>{item.tag}</a>)}
+      </div>
+    </div>
+  )}
+
+  <div class="sidebar-card__section">
+    <h3>Friends</h3>
+    <ul class="link-list" role="list">
+      {siteConfig.friends.map((friend) => (
+        <li><a href={friend.href} target="_blank" rel="noreferrer">{friend.title}</a></li>
+      ))}
+    </ul>
+  </div>
+</aside>

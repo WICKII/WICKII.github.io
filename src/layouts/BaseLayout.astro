@@ -1,0 +1,51 @@
+---
+import "../styles/global.css";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import { siteConfig } from "../site.config";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description = siteConfig.description, image = siteConfig.heroImage } = Astro.props;
+const pageTitle = title ? `${title} | ${siteConfig.seoTitle}` : siteConfig.seoTitle;
+const canonicalUrl = Astro.url.href;
+---
+
+<!doctype html>
+<html lang={siteConfig.locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={siteConfig.keywords.join(", ")} />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="/pwa/icons/128.png" />
+    <link rel="manifest" href="/pwa/manifest.json" />
+    <link rel="alternate" type="application/rss+xml" title={siteConfig.title} href="/rss.xml" />
+    <link rel="canonical" href={canonicalUrl} />
+    <title>{pageTitle}</title>
+
+    <meta property="og:site_name" content={siteConfig.title} />
+    <meta property="og:title" content={title ?? siteConfig.title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={new URL(image, Astro.site).toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title ?? siteConfig.title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site).toString()} />
+  </head>
+  <body>
+    <SiteHeader />
+    <main>
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

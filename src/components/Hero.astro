@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  eyebrow?: string;
+  meta?: string;
+  compact?: boolean;
+}
+
+const { title, description, image, eyebrow, meta, compact = false } = Astro.props;
+---
+
+<section
+  class:list={["hero", { "hero--compact": compact }]}
+  style={image ? `--hero-image: linear-gradient(135deg, rgba(15, 23, 42, 0.78), rgba(12, 74, 110, 0.46)), url('${image}');` : undefined}
+>
+  <div class="shell hero__inner">
+    {eyebrow && <p class="hero__eyebrow">{eyebrow}</p>}
+    <h1>{title}</h1>
+    {description && <p class="hero__description">{description}</p>}
+    {meta && <div class="hero__meta" set:html={meta} />}
+  </div>
+</section>

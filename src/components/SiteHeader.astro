@@ -1,0 +1,40 @@
+---
+import { siteConfig } from "../site.config";
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Tags", href: "/tags/" },
+  { label: "About", href: "/about/" }
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="site-brand" href="/">
+      <span class="site-brand__mark">W</span>
+      <span>
+        <strong>{siteConfig.title}</strong>
+        <small>{siteConfig.description}</small>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+      <span class="sr-only">Toggle navigation</span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" data-nav-panel>
+      {navItems.map((item) => (
+        <a
+          class:list={["site-nav__link", { "is-active": currentPath === item.href }]}
+          href={item.href}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
