@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Weikai Zhang — Resume</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f3f0ea; color: #171717; font-family: "Inter", "Segoe UI", Arial, sans-serif; font-size: 7.85pt; line-height: 1.18; }
+  .sheet { width: 210mm; min-height: 297mm; margin: 0 auto; padding: 6.4mm 7.2mm 4.8mm; background: radial-gradient(circle at 11% 4%, #fff4d6 0, #fffdf9 24mm); position: relative; }
+  .sheet::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3.2mm; background: linear-gradient(90deg, #0f172a, #0f766e 45%, #d4af37); }
+  header { display: grid; grid-template-columns: 1fr auto; gap: 5mm; padding-top: 2.1mm; padding-bottom: 2.2mm; border-bottom: 1.5px solid #d4af37; }
+  h1 { margin: 0; color: #0f172a; font-size: 20pt; letter-spacing: 0.05em; line-height: 0.9; text-transform: uppercase; }
+  .role { margin-top: 1mm; color: #0f766e; font-size: 7.75pt; font-weight: 850; letter-spacing: 0.08em; text-transform: uppercase; }
+  .contact { text-align: right; color: #334155; font-size: 7pt; line-height: 1.24; white-space: nowrap; }
+  .metrics { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1mm; margin: 1.65mm 0; }
+  .metric { border: 1px solid #d9caa4; background: linear-gradient(180deg, #fff7dc, #ffffff); border-radius: 7px; padding: 0.95mm 0.65mm; text-align: center; color: #1f2937; font-size: 6.55pt; font-weight: 850; }
+  .metric:nth-child(2) { border-color: #99f6e4; background: linear-gradient(180deg, #ecfdf5, #ffffff); }
+  .metric:nth-child(3) { border-color: #bfdbfe; background: linear-gradient(180deg, #eff6ff, #ffffff); }
+  .metric:nth-child(4) { border-color: #fed7aa; background: linear-gradient(180deg, #fff7ed, #ffffff); }
+  .metric:nth-child(5) { border-color: #ddd6fe; background: linear-gradient(180deg, #f5f3ff, #ffffff); }
+  .resume-grid { display: grid; grid-template-columns: 73mm 1fr; gap: 3.2mm; align-items: start; }
+  .panel { border: 1.2px solid #bfd8d4; border-radius: 8px; padding: 1.45mm; background: linear-gradient(180deg, #f0fdfa, #fffdf9); box-shadow: inset 3px 0 0 #0f766e; }
+  .main-flow { min-width: 0; }
+  .lower-grid { display: block; margin-top: 1.2mm; }
+  .lower-grid .credential-card { width: 100%; }
+  .credential-card { border: 1px solid #e5ddd1; border-radius: 7px; padding: 1.25mm 1.45mm; background: linear-gradient(180deg, #fffaf0, #fffefb); break-inside: avoid; }
+  .credential-card:nth-child(2) { border-color: #bfdbfe; background: linear-gradient(180deg, #eff6ff, #fffefb); }
+  .credential-card:nth-child(3) { border-color: #ccfbf1; background: linear-gradient(180deg, #f0fdfa, #fffefb); }
+  .credential-card:nth-child(4) { border-color: #ddd6fe; background: linear-gradient(180deg, #f5f3ff, #fffefb); }
+  h2 { margin: 0 0 1.2mm; color: #0f172a; font-size: 7.85pt; letter-spacing: 0.13em; text-transform: uppercase; }
+  h2::after { content: ""; display: block; width: 16mm; height: 1.2px; margin-top: 0.75mm; background: linear-gradient(90deg, #0f766e, #d4af37); }
+  h3 { margin: 0; color: #1e293b; font-size: 7.9pt; line-height: 1.17; }
+  p { margin: 0.5mm 0 0; color: #525252; }
+  ul { margin: 0; padding-left: 3.25mm; }
+  li { margin: 0 0 0.48mm; padding-left: 0.2mm; }
+  li::marker { color: #b8942e; }
+  .section { margin-bottom: 1.38mm; }
+  .section.tight { margin-bottom: 0.9mm; }
+  .skill-block { margin-bottom: 1.08mm; }
+  .skill-block h3 { color: #0f766e; margin-bottom: 0.75mm; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.7mm; }
+  .chip { display: inline-block; border: 1px solid #a7f3d0; border-radius: 999px; padding: 0.43mm 1.2mm; background: #ecfdf5; color: #134e4a; font-size: 6.38pt; font-weight: 700; }
+  .chip:nth-child(3n+2) { border-color: #bfdbfe; background: #eff6ff; color: #1e3a8a; }
+  .chip:nth-child(3n) { border-color: #f6d98a; background: #fffbeb; color: #713f12; }
+  .timeline-item { margin-bottom: 1.25mm; padding: 1.35mm 1.65mm 0.92mm; border: 1px solid #dbeafe; border-left: 3.2px solid #2563eb; border-radius: 7px; background: linear-gradient(180deg, #f8fbff, #fffefb); break-inside: avoid; }
+  .timeline-item:nth-child(2) { border-color: #ccfbf1; border-left-color: #0f766e; background: linear-gradient(180deg, #f0fdfa, #fffefb); }
+  .timeline-item:nth-child(3) { border-color: #fde68a; border-left-color: #d4af37; background: linear-gradient(180deg, #fffbeb, #fffefb); }
+  .timeline-head { display: grid; grid-template-columns: 1fr auto; gap: 2mm; margin-bottom: 0.9mm; }
+  .timeline-head span { color: #6f6250; font-size: 6.8pt; font-weight: 800; white-space: nowrap; text-align: right; }
+  .compact-card { border-left: 2.2px solid #d4af37; padding-left: 1.8mm; margin-bottom: 1.12mm; background: #fffaf0; }
+  .compact-card strong { display: block; margin-top: 0.35mm; color: #4b3f2b; font-size: 6.75pt; }
+  .mini-title { margin-top: 1.3mm; }
+  @media print { body { background: #ffffff; } .sheet { margin: 0; } }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header>
+    <div><h1>Weikai<br>Zhang</h1><div class="role">Staff RF Software Engineer · AI Debug Infrastructure Owner</div></div>
+    <div class="contact">(+86) 189-6480-8256<br>WICKZHAN@QTI.QUALCOMM.COM<br>Shanghai, China</div>
+  </header>
+  <section class="metrics"><div class="metric">HammerAgent owner</div><div class="metric">#1 Modem App Hub</div><div class="metric">10K+ parser usage</div><div class="metric">5G RF software</div><div class="metric">AI triage</div></section>
+  <div class="resume-grid">
+    <aside class="panel">
+      
+    <section class="section tight">
+      <h2>Technical Skills</h2>
+      <div class="skill-block"><h3>AI / Agent Engineering</h3><div class="chips"><span class="chip">QGenie SDK</span><span class="chip">LLM/NLP</span><span class="chip">RAG</span><span class="chip">Embeddings</span><span class="chip">MCP</span><span class="chip">A2A</span><span class="chip">Evidence extraction</span><span class="chip">HITL validation</span></div></div><div class="skill-block"><h3>AI System Architecture</h3><div class="chips"><span class="chip">FastAPI</span><span class="chip">Pipeline runner</span><span class="chip">Serial queue</span><span class="chip">Crash recovery</span><span class="chip">SQLite</span><span class="chip">Threshold engine</span><span class="chip">Telemetry</span><span class="chip">Learning loop</span></div></div><div class="skill-block"><h3>Wireless / RF Front-End</h3><div class="chips"><span class="chip">5G NR RF SW</span><span class="chip">TxAGC</span><span class="chip">DSDA/DSDS Tx</span><span class="chip">SUL</span><span class="chip">ULCA</span><span class="chip">SRS switching</span><span class="chip">PA/PAPM/XSW/ASM</span><span class="chip">RFFE timing</span></div></div><div class="skill-block"><h3>Modem / Tools</h3><div class="chips"><span class="chip">Python</span><span class="chip">C</span><span class="chip">Git</span><span class="chip">Hexagon</span><span class="chip">ARM IU</span><span class="chip">MATLAB</span><span class="chip">QXDM/QUTS</span><span class="chip">QTRACE</span></div></div><div class="skill-block"><h3>RF Hardware</h3><div class="chips"><span class="chip">PA</span><span class="chip">ADS</span><span class="chip">Altium</span><span class="chip">Callbox</span><span class="chip">VNA</span><span class="chip">Spectrum analyzer</span><span class="chip">Signal source</span></div></div>
+    </section>
+    
+      
+    <section class="section tight">
+      <h2>Education</h2>
+      
+    <div class="compact-card"><h3>M.E., Electronic Science and Technology</h3><p>Beijing University of Posts and Telecommunications · Jun 2019</p><strong>Rank: 20 / 275</strong></div>
+    <div class="compact-card"><h3>B.S., Communication Engineering</h3><p>Liaoning Technical University · Jun 2016</p><strong>Rank: 5 / 120 · CET-6: 539 / 710 · NCRE Grade 2</strong></div>
+    
+    </section>
+    
+      
+    <section class="section tight">
+      <h2>Academic Projects</h2>
+      <ul><li>863 Program: Designed high-efficiency GaN Doherty power amplifiers covering LTE bands in China, targeting 52 dBm peak output power and over 40% drain efficiency at 6 dB output power back-off.</li><li>973 Program: Explored efficiency improvement methodology for base stations and implemented a novel power amplifier with efficiency above 55% at 8–12 dB OBO under a 150 MHz modulated signal.</li></ul>
+    </section>
+    
+      
+    <section class="section tight">
+      <h2>Awards</h2>
+      <ul><li>2nd National Prize, China Post-Graduate Mathematical Contest in Modeling.</li><li>1st Prize Academic Scholarship of BUPT, three times.</li><li>2nd National Prize, China Undergraduate Mathematical Contest in Modeling.</li><li>National Scholarship of LNTU; 1st Prize Academic Scholarship of LNTU, four times.</li><li>1st Provincial Prize, Chinese Mathematics Competitions.</li></ul>
+    </section>
+    
+    </aside>
+    <section class="main-flow">
+      
+    <section class="section tight">
+      <h2>Professional Summary</h2>
+      <ul><li>Owner of HammerAgent, an AI-assisted modem debugging system built on QGenie SDK/model integration, agentic tool workflows, domain-specific RAG, evidence score, and rule-driven log analysis for RF, Digital, and MAC UL debug.</li><li>Architected Hammer/HammerAgent as an E2E triage platform with FastAPI web portal/orchestrator, local pipeline runner, parser/analysis engine, cross-layer correlation, deterministic verdict gate, advisory AI layer, feedback store, and continuous learning loop.</li><li>Staff RF Embedded Software Engineer with deep experience in 5G modem RF software, Tx architecture, RFFE control, product bring-up, customer escalation, and Hexagon &amp; ARM IU processor development.</li></ul>
+    </section>
+    
+      
+    <section class="section">
+      <h2>Work Experience</h2>
+      
+    <article class="timeline-item">
+      <div class="timeline-head">
+        <h3>Qualcomm — Staff RF Software Engineer</h3>
+        <span>Dec 2024 – Present · Pudong, Shanghai</span>
+      </div>
+      <ul><li>Created HammerAgent, an end-to-end AI-assisted debugging agent for RF, Digital, and MAC UL analysis, integrating QGenie SDK/model access, in-house embeddings, skill/tool orchestration, evidence extraction, and human-in-the-loop diagnosis.</li><li>Co-architected Autologparser from parser automation into a measurable closed-loop triage architecture with QUTS/QXDM parsing, opcode registry, QTRACE/IQ capture, SQLite artifacts, FastAPI orchestration, dashboard telemetry, feedback ratings, and email/report delivery.</li><li>Drove early-stage design and technical proposals with RF System and Modem System teams for TxAGC evolution, uplink power limiting, envelope expansion, and UL enhancement from concept to bring-up readiness.</li><li>Designed and debugged RFFE control behavior across PA, PAPM, XSW, ASM, and tuner paths; served as point of contact for DSDA Tx and Intra-CA Tx feature design, triage, and customer support.</li></ul>
+    </article>
+    
+    <article class="timeline-item">
+      <div class="timeline-head">
+        <h3>Qualcomm — Senior Software Engineer</h3>
+        <span>May 2019 – Nov 2024 · Pudong, Shanghai</span>
+      </div>
+      <ul><li>Developed and brought up 5G modem RF software in highly concurrent embedded environments, covering RF/BB integration, Tx behavior, RFFE control, modem timing, certification, performance, stability, and customer issue resolution.</li><li>Supported onsite and remote factory bring-up for Apple 5G products, including modem integration, RF calibration, production issue debugging, and cross-layer troubleshooting across RF software, modem control, and system behavior.</li><li>Collaborated with System, RF, BB, AS, CE, and global development teams under aggressive schedules; mentored team members on RF debugging methodology, trace interpretation, and feature bring-up flow.</li></ul>
+    </article>
+    
+    <article class="timeline-item">
+      <div class="timeline-head">
+        <h3>Apple R&amp;D (Beijing) Limited — Wireless Design Innovator Intern</h3>
+        <span>Jun 2018 – Apr 2019</span>
+      </div>
+      <ul><li>Built MMW RADAR applications with AWR1642 development kits.</li><li>Explored intelligent issue triage powered by NLP log analysis.</li><li>Participated in wireless product innovation activities with project managers, innovators, design engineers, manufacturing teams, and third-party testing labs.</li></ul>
+    </article>
+    
+    </section>
+    
+      <div class="lower-grid">
+        <div class="credential-card">
+    <section class="section tight">
+      <h2>Publications &amp; Patents</h2>
+      <ul><li>C. Yu, W. Zhang and Y. Liu, “A broadband Doherty power amplifier based on rotated T-shape load modulation network,” 2018 IEEE MTT-S International Wireless Symposium, Chengdu, China, 2018.</li><li>2505340WO1 — Power allocation handling for uplink component carriers in an uplink carrier aggregation configuration.</li><li>WO2022222023 — UE capability information for frequency band combination conflict.</li><li>WO2022252169A1 — Dynamic code block group allocation.</li></ul>
+    </section>
+    </div>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>
