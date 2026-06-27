@@ -15,7 +15,7 @@ export function getPostSegments(id: string) {
 }
 
 export function getPostPath(id: string) {
-  return `/${getPostSegments(id).join("/")}/`;
+  return `/${getPostSegments(id).map(encodeURIComponent).join("/")}/`;
 }
 
 export function getSortedPosts(posts: BlogEntry[]) {
