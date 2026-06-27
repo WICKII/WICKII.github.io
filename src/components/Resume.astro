@@ -193,10 +193,10 @@
           <h2>Publications &amp; Patents</h2>
           <div class="r-pub-card">
             <ul>
-              <li>C. Yu, W. Zhang and Y. Liu, "A broadband Doherty power amplifier based on rotated T-shape load modulation network," 2018 IEEE MTT-S International Wireless Symposium, Chengdu, China, 2018.</li>
+              <li><a href="https://ieeexplore.ieee.org/abstract/document/8400934" target="_blank" rel="noreferrer">C. Yu, W. Zhang and Y. Liu, "A broadband Doherty power amplifier based on rotated T-shape load modulation network," 2018 IEEE MTT-S International Wireless Symposium, Chengdu, China, 2018.</a></li>
               <li>2505340WO1 — Power allocation handling for uplink component carriers in an uplink carrier aggregation configuration.</li>
-              <li>WO2022222023 — UE capability information for frequency band combination conflict.</li>
-              <li>WO2022252169A1 — Dynamic code block group allocation.</li>
+              <li><a href="https://patents.google.com/patent/WO2022222023" target="_blank" rel="noreferrer">WO2022222023 — UE capability information for frequency band combination conflict.</a></li>
+              <li><a href="https://patents.google.com/patent/WO2022252169A1" target="_blank" rel="noreferrer">WO2022252169A1 — Dynamic code block group allocation.</a></li>
             </ul>
           </div>
         </section>
@@ -579,6 +579,19 @@
     border-radius: 7px;
     padding: 0.4rem 0.55rem;
     background: linear-gradient(180deg, #fffaf0, #fffdf8);
+  }
+
+  .r-pub-card a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #c8aa74;
+    text-underline-offset: 2px;
+    transition: color 0.15s ease;
+  }
+
+  .r-pub-card a:hover {
+    color: var(--accent-strong);
+    text-decoration-color: var(--accent);
   }
 
   /* =====================================================
