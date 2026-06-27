@@ -18,7 +18,7 @@
     <!-- Header -->
     <header class="r-header">
       <div class="r-header__name">
-        <h1>Wicii Zhang</h1>
+        <h1>WICKII Zhang</h1>
         <p class="r-header__role">Staff Embedded Software Engineer &middot; AI-Native</p>
       </div>
       <div class="r-header__contact">
@@ -44,35 +44,28 @@
         <section class="r-block">
           <h2>Technical Skills</h2>
 
-          <div class="r-skill-group">
+          <div class="r-skill-group r-skill-group--green">
             <h3>AI / Agent Engineering</h3>
             <div class="r-chips">
-              <span class="r-chip">QGenie SDK</span><span class="r-chip">LLM/NLP</span><span class="r-chip">RAG</span><span class="r-chip">Embeddings</span><span class="r-chip">MCP</span><span class="r-chip">A2A</span><span class="r-chip">Evidence extraction</span><span class="r-chip">HITL validation</span>
+              <span class="r-chip">QGenie SDK</span><span class="r-chip">LLM/NLP</span><span class="r-chip">RAG</span><span class="r-chip">Embeddings</span><span class="r-chip">MCP</span><span class="r-chip">A2A</span><span class="r-chip">Evidence extraction</span><span class="r-chip">HITL validation</span><span class="r-chip">FastAPI</span><span class="r-chip">Pipeline runner</span><span class="r-chip">Serial queue</span><span class="r-chip">Crash recovery</span><span class="r-chip">SQLite</span><span class="r-chip">Threshold engine</span><span class="r-chip">Telemetry</span><span class="r-chip">Learning loop</span>
             </div>
           </div>
 
-          <div class="r-skill-group">
-            <h3>AI System Architecture</h3>
-            <div class="r-chips">
-              <span class="r-chip">FastAPI</span><span class="r-chip">Pipeline runner</span><span class="r-chip">Serial queue</span><span class="r-chip">Crash recovery</span><span class="r-chip">SQLite</span><span class="r-chip">Threshold engine</span><span class="r-chip">Telemetry</span><span class="r-chip">Learning loop</span>
-            </div>
-          </div>
-
-          <div class="r-skill-group">
+          <div class="r-skill-group r-skill-group--blue">
             <h3>Wireless / RF Front-End</h3>
             <div class="r-chips">
               <span class="r-chip">5G NR RF SW</span><span class="r-chip">TxAGC</span><span class="r-chip">DSDA/DSDS Tx</span><span class="r-chip">SUL</span><span class="r-chip">ULCA</span><span class="r-chip">SRS switching</span><span class="r-chip">PA/PAPM/XSW/ASM</span><span class="r-chip">RFFE timing</span>
             </div>
           </div>
 
-          <div class="r-skill-group">
+          <div class="r-skill-group r-skill-group--blue">
             <h3>Modem / Tools</h3>
             <div class="r-chips">
-              <span class="r-chip">Python</span><span class="r-chip">C</span><span class="r-chip">Git</span><span class="r-chip">Hexagon</span><span class="r-chip">ARM IU</span><span class="r-chip">MATLAB</span><span class="r-chip">QXDM/QUTS</span><span class="r-chip">QTRACE</span>
+              <span class="r-chip">Python</span><span class="r-chip">C</span><span class="r-chip">Git</span><span class="r-chip">Hexagon</span><span class="r-chip">ARM IU</span><span class="r-chip">MATLAB</span><span class="r-chip">Qualcomm Modem Suite</span>
             </div>
           </div>
 
-          <div class="r-skill-group">
+          <div class="r-skill-group r-skill-group--amber">
             <h3>RF Hardware</h3>
             <div class="r-chips">
               <span class="r-chip">PA</span><span class="r-chip">ADS</span><span class="r-chip">Altium</span><span class="r-chip">Callbox</span><span class="r-chip">VNA</span><span class="r-chip">Spectrum analyzer</span><span class="r-chip">Signal source</span>
@@ -465,27 +458,49 @@
     gap: 0.22rem;
   }
 
+  /* ── Base chip (fallback, no group modifier) ── */
   .r-chip {
     display: inline-block;
-    border: 1px solid #a7f3d0;
     border-radius: 999px;
     padding: 0.12rem 0.45rem;
-    background: #ecfdf5;
-    color: #134e4a;
     font-size: 0.6rem;
     font-weight: 700;
+    border: 1px solid #c5cfc6;
+    background: #eef1ee;
+    color: #3d4d3e;
   }
 
-  .r-chip:nth-child(3n+2) {
-    border-color: #bfdbfe;
-    background: #eff6ff;
-    color: #1e3a8a;
+  /* ── 莫兰蒂绿 — AI / LLM (苔藓绿 sage) ── */
+  .r-skill-group--green .r-chip {
+    border: 1px solid #9fb8a0;
+    background: linear-gradient(135deg, #e8f0e9, #f3f7f3);
+    color: #2d4a31;
   }
 
-  .r-chip:nth-child(3n) {
-    border-color: #f6d98a;
-    background: #fffbeb;
-    color: #713f12;
+  .r-skill-group--green h3 {
+    color: #4a7c52;
+  }
+
+  /* ── 莫兰蒂蓝 — Modem / Tx (雾霾蓝 dusty slate) ── */
+  .r-skill-group--blue .r-chip {
+    border: 1px solid #8da8c0;
+    background: linear-gradient(135deg, #e4ecf4, #f1f5f9);
+    color: #243d56;
+  }
+
+  .r-skill-group--blue h3 {
+    color: #3a6285;
+  }
+
+  /* ── 莫兰蒂黄 — RF Hardware / EDA (小麦金 warm wheat) ── */
+  .r-skill-group--amber .r-chip {
+    border: 1px solid #c8aa74;
+    background: linear-gradient(135deg, #f5ecda, #faf6ee);
+    color: #5a3e1b;
+  }
+
+  .r-skill-group--amber h3 {
+    color: #8a6020;
   }
 
   /* ---- Education cards ---- */
@@ -579,174 +594,178 @@
       display: none;
     }
 
-    /* A4 sheet */
+    /* A4 sheet — generous padding to breathe */
     .resume-sheet {
       width: 210mm;
-      height: 297mm;
+      min-height: 297mm;
       max-width: none;
       margin: 0;
-      padding: 1.1rem 1.5rem 0.9rem;
+      padding: 1.6rem 1.8rem 1.4rem;
       background: var(--surface-strong, #fffdf8);
       border: none;
       border-radius: 0;
       box-shadow: none;
-      overflow: hidden;
+      overflow: visible;
     }
 
     /* Gold/teal accent stripe preserved */
     .resume-sheet::before {
-      height: 2.5mm;
+      height: 3mm;
       background: linear-gradient(90deg, var(--accent), #b8942e);
     }
 
     .r-header {
-      padding-top: 0;
-      padding-bottom: 0.5rem;
-      margin-bottom: 0.4rem;
-      gap: 0.5rem;
+      padding-top: 0.2rem;
+      padding-bottom: 0.75rem;
+      margin-bottom: 0.55rem;
+      gap: 0.75rem;
     }
 
     .r-header__name h1 {
-      font-size: 1.4rem;
-      letter-spacing: 0.04em;
+      font-size: 1.65rem;
+      letter-spacing: 0.06em;
     }
 
     .r-header__role {
-      font-size: 0.65rem;
-      margin-top: 0.2rem;
+      font-size: 0.72rem;
+      margin-top: 0.3rem;
     }
 
     .r-header__contact {
-      font-size: 0.6rem;
-      line-height: 1.3;
+      font-size: 0.68rem;
+      line-height: 1.5;
     }
 
     .r-metrics {
-      margin: 0.35rem 0 0.45rem;
-      gap: 0.25rem;
+      margin: 0.5rem 0 0.65rem;
+      gap: 0.3rem;
     }
 
     .r-metric {
-      font-size: 0.55rem;
-      padding: 0.2rem 0.15rem;
+      font-size: 0.62rem;
+      padding: 0.35rem 0.25rem;
     }
 
     /* Two-column grid preserved in print */
     .r-grid {
       display: grid;
       grid-template-columns: 1fr 1.75fr;
-      gap: 0.6rem;
+      gap: 0.9rem;
     }
 
     .r-panel {
-      padding: 0.4rem;
+      padding: 0.65rem;
     }
 
     .r-block {
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.65rem;
     }
 
     .r-block h2 {
-      font-size: 0.68rem;
-      margin-bottom: 0.3rem;
+      font-size: 0.78rem;
+      margin-bottom: 0.45rem;
     }
 
     .r-block h2::after {
-      width: 18px;
-      margin-top: 0.2rem;
+      width: 24px;
+      margin-top: 0.25rem;
     }
 
     .r-block h3 {
-      font-size: 0.68rem;
+      font-size: 0.78rem;
     }
 
     .r-block p {
-      font-size: 0.6rem;
-      margin-top: 0.1rem;
+      font-size: 0.7rem;
+      margin-top: 0.15rem;
+      line-height: 1.5;
     }
 
     .r-block ul {
-      font-size: 0.6rem;
-      margin-top: 0.1rem;
+      font-size: 0.7rem;
+      margin-top: 0.15rem;
     }
 
     .r-block li {
-      margin-bottom: 0.1rem;
+      margin-bottom: 0.2rem;
+      line-height: 1.5;
     }
 
     .r-block strong {
-      font-size: 0.6rem;
+      font-size: 0.68rem;
     }
 
     .r-skill-group {
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
     }
 
     .r-skill-group h3 {
-      font-size: 0.58rem;
-      margin-bottom: 0.15rem;
+      font-size: 0.68rem;
+      margin-bottom: 0.22rem;
     }
 
     .r-chips {
-      gap: 0.18rem;
+      gap: 0.22rem;
     }
 
     .r-chip {
-      font-size: 0.52rem;
-      padding: 0.1rem 0.35rem;
+      font-size: 0.6rem;
+      padding: 0.14rem 0.45rem;
     }
 
     .r-edu-card {
-      margin-bottom: 0.25rem;
-      padding: 0.1rem 0 0.1rem 0.45rem;
+      margin-bottom: 0.45rem;
+      padding: 0.2rem 0 0.2rem 0.55rem;
     }
 
     .r-edu-card h3 {
-      font-size: 0.66rem;
+      font-size: 0.78rem;
     }
 
     .r-edu-card strong {
-      font-size: 0.56rem;
-      margin-top: 0.05rem;
+      font-size: 0.65rem;
+      margin-top: 0.1rem;
     }
 
     .r-timeline-item {
-      margin-bottom: 0.35rem;
-      padding: 0.35rem 0.45rem 0.25rem;
+      margin-bottom: 0.55rem;
+      padding: 0.5rem 0.6rem 0.4rem;
       break-inside: avoid;
     }
 
     .r-timeline-head {
-      margin-bottom: 0.2rem;
-      gap: 0.3rem;
+      margin-bottom: 0.3rem;
+      gap: 0.5rem;
     }
 
     .r-timeline-head h3 {
-      font-size: 0.66rem;
+      font-size: 0.78rem;
     }
 
     .r-timeline-head span {
-      font-size: 0.55rem;
+      font-size: 0.65rem;
     }
 
     .r-timeline-item ul {
-      font-size: 0.58rem;
+      font-size: 0.68rem;
     }
 
     .r-timeline-item li {
-      margin-bottom: 0.08rem;
+      margin-bottom: 0.18rem;
+      line-height: 1.5;
     }
 
     .r-pub-card {
-      padding: 0.3rem 0.45rem;
+      padding: 0.45rem 0.6rem;
     }
 
     .r-pub-card ul {
-      font-size: 0.58rem;
+      font-size: 0.68rem;
     }
 
     .r-pub-card li {
-      margin-bottom: 0.06rem;
+      margin-bottom: 0.18rem;
+      line-height: 1.5;
     }
   }
 

@@ -489,9 +489,9 @@ pre {
     display: none !important;
   }
 
-  /* Scale rem units uniformly to fit A4 */
+  /* 13.5px fills A4 cleanly with generous spacing without overflow */
   html {
-    font-size: 13px;
+    font-size: 13.5px;
   }
 
   html, body {
