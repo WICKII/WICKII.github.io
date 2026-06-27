@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Comments from "../components/Comments.astro";
 import Hero from "../components/Hero.astro";
+import Resume from "../components/Resume.astro";
 import Sidebar from "../components/Sidebar.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getSortedPosts } from "../utils/blog";
@@ -18,21 +19,27 @@ const posts = getSortedPosts(await getCollection("blog"));
 
   <section class="page-grid">
     <div class="page-main">
-      <blockquote>
-        <p>坐而论道<br />不如起而行之</p>
-      </blockquote>
+      <div class="about-bio">
+        <blockquote>
+          <p>坐而论道<br />不如起而行之</p>
+        </blockquote>
 
-      <p>Hey，我是 <strong>维奇 (WICKII)</strong>，一名 RF engineer。这个博客用来记录工作、学习、健身和生活里的长期思考。</p>
-      <p>这里的内容主要围绕 RF design、硬件电路、工程成长，以及一些更私人但重要的生活片段。比起追热点，我更想把它整理成一个能持续沉淀的个人知识空间。</p>
-      <p>博客依然部署在 GitHub Pages 上，但现在架构已经迁到 Astro，更轻、更清晰，也更适合继续长期写作。</p>
+        <p>Hey，我是 <strong>维奇 (WICKII)</strong>，一名 RF engineer。这个博客用来记录工作、学习、健身和生活里的长期思考。</p>
+        <p>这里的内容主要围绕 RF design、硬件电路、工程成长，以及一些更私人但重要的生活片段。比起追热点，我更想把它整理成一个能持续沉淀的个人知识空间。</p>
+        <p>博客依然部署在 GitHub Pages 上，但现在架构已经迁到 Astro，更轻、更清晰，也更适合继续长期写作。</p>
 
-      <h2>Where to find me</h2>
-      <ul class="social-links" role="list">
-        <li><a href="https://github.com/WICKII" target="_blank" rel="noreferrer">GitHub</a></li>
-        <li><a href="https://www.zhihu.com/people/wicky-jane" target="_blank" rel="noreferrer">Zhihu</a></li>
-        <li><a href="https://weibo.com/2126251470" target="_blank" rel="noreferrer">Weibo</a></li>
-        <li><a href="https://www.jianshu.com/u/dce56a33daf1" target="_blank" rel="noreferrer">JianShu</a></li>
-      </ul>
+        <h2>Where to find me</h2>
+        <ul class="social-links" role="list">
+          <li><a href="https://github.com/WICKII" target="_blank" rel="noreferrer">GitHub</a></li>
+          <li><a href="https://www.zhihu.com/people/wicky-jane" target="_blank" rel="noreferrer">Zhihu</a></li>
+          <li><a href="https://weibo.com/2126251470" target="_blank" rel="noreferrer">Weibo</a></li>
+          <li><a href="https://www.jianshu.com/u/dce56a33daf1" target="_blank" rel="noreferrer">JianShu</a></li>
+        </ul>
+      </div>
+
+      <div class="resume-wrapper">
+        <Resume />
+      </div>
     </div>
     <Sidebar posts={posts} />
   </section>
