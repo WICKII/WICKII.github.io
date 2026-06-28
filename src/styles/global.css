@@ -40,7 +40,7 @@ body {
     radial-gradient(circle at top left, rgba(15, 118, 110, 0.18), transparent 26rem),
     radial-gradient(circle at right, rgba(249, 115, 22, 0.12), transparent 24rem),
     var(--bg);
-  font-family: "Comic Neue", "ZCOOL XiaoWei", "Noto Serif SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", cursive, serif;
+  font-family: "Comic Neue", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
   line-height: 1.7;
   transition: background 0.3s ease, color 0.3s ease;
 }
@@ -411,7 +411,7 @@ pre {
 
 .credo__zh {
   margin: 0 0 0.55rem;
-  font-family: "ZCOOL XiaoWei", "Noto Serif SC", serif;
+  font-family: "ZCOOL XiaoWei", "Noto Sans SC", serif;
   font-size: clamp(1.5rem, 4vw, 2.2rem);
   font-weight: 400;
   letter-spacing: 0.18em;

@@ -1,25 +1,22 @@
 ---
-interface Props {
-  id: string;
-}
-
-const { id } = Astro.props;
+import { siteConfig } from "../site.config";
+const { giscus } = siteConfig;
 ---
 
 <div class="comments-shell shell">
   <script
     src="https://giscus.app/client.js"
-    data-repo="WICKII/WICKII.github.io"
-    data-repo-id="R_kgDOTGkfIA"
-    data-category="General"
-    data-category-id="DIC_kwDOTGkfIM4DACg7"
+    data-repo={giscus.repo}
+    data-repo-id={giscus.repoId}
+    data-category={giscus.category}
+    data-category-id={giscus.categoryId}
     data-mapping="pathname"
     data-strict="0"
     data-reactions-enabled="1"
     data-emit-metadata="0"
     data-input-position="top"
     data-theme="dark"
-    data-lang="zh-CN"
+    data-lang={giscus.lang}
     data-loading="lazy"
     crossorigin="anonymous"
     async
@@ -27,25 +24,21 @@ const { id } = Astro.props;
 </div>
 
 <script>
-  // Sync Giscus theme with site theme toggle
   function syncGiscusTheme() {
     const theme = document.documentElement.getAttribute("data-theme") ?? "dark";
-    const giscusTheme = theme === "dark" ? "dark" : "light";
     const iframe = document.querySelector<HTMLIFrameElement>("iframe.giscus-frame");
     if (iframe?.contentWindow) {
       iframe.contentWindow.postMessage(
-        { giscus: { setConfig: { theme: giscusTheme } } },
+        { giscus: { setConfig: { theme: theme === "dark" ? "dark" : "light" } } },
         "https://giscus.app"
       );
     }
   }
 
-  // Sync on theme toggle clicks
   document.getElementById("theme-toggle")?.addEventListener("click", () => {
     setTimeout(syncGiscusTheme, 50);
   });
 
-  // Sync once iframe loads
   window.addEventListener("message", (e) => {
     if (e.origin !== "https://giscus.app") return;
     if (e.data?.giscus?.discussion !== undefined) syncGiscusTheme();

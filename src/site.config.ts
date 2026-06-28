@@ -27,5 +27,12 @@ export const siteConfig = {
     { title: "简书·WICKII", href: "https://www.jianshu.com/u/dce56a33daf1" },
     { title: "简书·lifesmily", href: "https://www.jianshu.com/u/e87b13f1f05c" },
     { title: "Yuan Blog", href: "https://dodoyuan.github.io/" }
-  ]
+  ],
+  giscus: {
+    repo: "WICKII/WICKII.github.io" as const,
+    repoId: "R_kgDOTGkfIA",
+    category: "General",
+    categoryId: "DIC_kwDOTGkfIM4DACg7",
+    lang: "zh-CN"
+  }
 } as const;
