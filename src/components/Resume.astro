@@ -284,6 +284,9 @@
     --resume-chip-blue-text: #243d56;
     --resume-chip-amber-bg: linear-gradient(135deg, #f5ecda, #faf6ee);
     --resume-chip-amber-text: #5a3e1b;
+    --resume-skill-green-heading: #4a7c52;
+    --resume-skill-blue-heading: #3a6285;
+    --resume-skill-amber-heading: #8a6020;
     --resume-edu-bg: #fffaf0;
     --resume-strong: #4b3f2b;
     --resume-timeline-blue-bg: linear-gradient(180deg, #f8fbff, #fffdf8);
@@ -325,6 +328,9 @@
       --resume-chip-blue-text: #cbdff1;
       --resume-chip-amber-bg: linear-gradient(135deg, rgba(138, 96, 32, 0.42), rgba(58, 44, 25, 0.72));
       --resume-chip-amber-text: #ead8b8;
+      --resume-skill-green-heading: #9cd8a5;
+      --resume-skill-blue-heading: #9cc8ee;
+      --resume-skill-amber-heading: #e6c47f;
       --resume-edu-bg: rgba(212, 175, 55, 0.1);
       --resume-strong: #e2d4b8;
       --resume-timeline-blue-bg: linear-gradient(180deg, rgba(37, 99, 235, 0.16), rgba(18, 22, 28, 0.96));
@@ -538,7 +544,7 @@
   }
 
   .r-skill-group--green h3 {
-    color: #4a7c52;
+    color: var(--resume-skill-green-heading);
   }
 
   /* ── 莫兰蒂蓝 — Modem / Tx (雾霾蓝 dusty slate) ── */
@@ -549,7 +555,7 @@
   }
 
   .r-skill-group--blue h3 {
-    color: #3a6285;
+    color: var(--resume-skill-blue-heading);
   }
 
   /* ── 莫兰蒂黄 — RF Hardware / EDA (小麦金 warm wheat) ── */
@@ -560,7 +566,7 @@
   }
 
   .r-skill-group--amber h3 {
-    color: #8a6020;
+    color: var(--resume-skill-amber-heading);
   }
 
   /* ---- Education cards ---- */
@@ -674,7 +680,7 @@
       max-width: none;
       margin: 0;
       padding: 1.6rem 1.8rem 1.4rem;
-      background: var(--surface-strong, #fffdf8);
+      background: var(--resume-sheet-bg);
       border: none;
       border-radius: 0;
       box-shadow: none;
