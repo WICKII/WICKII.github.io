@@ -7,6 +7,11 @@ interface Props {
 }
 
 const { post } = Astro.props;
+const snippet = post.body
+  .replace(/[#>*`[\]{}\n]/g, " ")
+  .replace(/\s+/g, " ")
+  .trim()
+  .slice(0, 180);
 ---
 
 <article class="post-card">
@@ -16,6 +21,6 @@ const { post } = Astro.props;
   </div>
   <h2><a href={getPostPath(post.id)}>{post.data.title}</a></h2>
   {post.data.subtitle && <p class="post-card__subtitle">{post.data.subtitle}</p>}
-  <p>{post.body.replace(/[#>*`[\]\n]/g, " ").replace(/\s+/g, " ").trim().slice(0, 180)}...</p>
+  <p>{snippet}...</p>
   <a class="post-card__link" href={getPostPath(post.id)}>Read article</a>
 </article>
