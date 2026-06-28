@@ -263,16 +263,75 @@
 
   /* ---- Sheet (card) ---- */
   .resume-sheet {
+    --resume-sheet-bg: #fffdf8;
+    --resume-heading: #0f172a;
+    --resume-body: #374151;
+    --resume-copy: #525252;
+    --resume-contact: #334155;
+    --resume-muted: #6f6250;
+    --resume-metric-text: #1f2937;
+    --resume-metric-bg: linear-gradient(180deg, #fff7dc, #fffdf8);
+    --resume-metric-green-bg: linear-gradient(180deg, #ecfdf5, #fffdf8);
+    --resume-metric-blue-bg: linear-gradient(180deg, #eff6ff, #fffdf8);
+    --resume-metric-orange-bg: linear-gradient(180deg, #fff7ed, #fffdf8);
+    --resume-metric-purple-bg: linear-gradient(180deg, #f5f3ff, #fffdf8);
+    --resume-panel-bg: linear-gradient(180deg, #f0fdfa, #fffdf8);
+    --resume-chip-bg: #eef1ee;
+    --resume-chip-text: #3d4d3e;
+    --resume-chip-green-bg: linear-gradient(135deg, #e8f0e9, #f3f7f3);
+    --resume-chip-green-text: #2d4a31;
+    --resume-chip-blue-bg: linear-gradient(135deg, #e4ecf4, #f1f5f9);
+    --resume-chip-blue-text: #243d56;
+    --resume-chip-amber-bg: linear-gradient(135deg, #f5ecda, #faf6ee);
+    --resume-chip-amber-text: #5a3e1b;
+    --resume-edu-bg: #fffaf0;
+    --resume-strong: #4b3f2b;
+    --resume-timeline-blue-bg: linear-gradient(180deg, #f8fbff, #fffdf8);
+    --resume-timeline-green-bg: linear-gradient(180deg, #f0fdfa, #fffdf8);
+    --resume-timeline-amber-bg: linear-gradient(180deg, #fffbeb, #fffdf8);
+    --resume-pub-bg: linear-gradient(180deg, #fffaf0, #fffdf8);
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem 2.2rem 1.6rem;
-    background: var(--surface-strong, #fffdf8);
-    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    background: var(--resume-sheet-bg);
+    font-family: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow);
     position: relative;
     overflow: hidden;
+  }
+
+  @media screen {
+    :global([data-theme="dark"]) .resume-sheet {
+      --resume-sheet-bg: linear-gradient(180deg, #181a1d, #121314);
+      --resume-heading: #f2eee8;
+      --resume-body: #d9d3cb;
+      --resume-copy: #b7aea4;
+      --resume-contact: #c9c3bc;
+      --resume-muted: #aaa196;
+      --resume-metric-text: #efe8dc;
+      --resume-metric-bg: linear-gradient(180deg, rgba(180, 131, 33, 0.28), rgba(31, 29, 24, 0.96));
+      --resume-metric-green-bg: linear-gradient(180deg, rgba(45, 212, 191, 0.18), rgba(23, 34, 31, 0.96));
+      --resume-metric-blue-bg: linear-gradient(180deg, rgba(96, 165, 250, 0.18), rgba(22, 29, 42, 0.96));
+      --resume-metric-orange-bg: linear-gradient(180deg, rgba(249, 115, 22, 0.18), rgba(35, 26, 20, 0.96));
+      --resume-metric-purple-bg: linear-gradient(180deg, rgba(167, 139, 250, 0.18), rgba(29, 25, 41, 0.96));
+      --resume-panel-bg: linear-gradient(180deg, rgba(22, 59, 55, 0.72), rgba(20, 22, 23, 0.96));
+      --resume-chip-bg: rgba(255, 255, 255, 0.07);
+      --resume-chip-text: #ddd7ce;
+      --resume-chip-green-bg: linear-gradient(135deg, rgba(74, 124, 82, 0.38), rgba(34, 52, 38, 0.7));
+      --resume-chip-green-text: #c8e6cc;
+      --resume-chip-blue-bg: linear-gradient(135deg, rgba(58, 98, 133, 0.42), rgba(28, 42, 56, 0.72));
+      --resume-chip-blue-text: #cbdff1;
+      --resume-chip-amber-bg: linear-gradient(135deg, rgba(138, 96, 32, 0.42), rgba(58, 44, 25, 0.72));
+      --resume-chip-amber-text: #ead8b8;
+      --resume-edu-bg: rgba(212, 175, 55, 0.1);
+      --resume-strong: #e2d4b8;
+      --resume-timeline-blue-bg: linear-gradient(180deg, rgba(37, 99, 235, 0.16), rgba(18, 22, 28, 0.96));
+      --resume-timeline-green-bg: linear-gradient(180deg, rgba(45, 212, 191, 0.14), rgba(18, 28, 26, 0.96));
+      --resume-timeline-amber-bg: linear-gradient(180deg, rgba(212, 175, 55, 0.16), rgba(30, 26, 19, 0.96));
+      --resume-pub-bg: linear-gradient(180deg, rgba(212, 175, 55, 0.1), rgba(20, 22, 23, 0.96));
+    }
   }
 
   /* Gold/teal accent stripe */
@@ -301,7 +360,7 @@
     font-size: 1.65rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #0f172a;
+    color: var(--resume-heading);
     line-height: 0.95;
   }
 
@@ -317,7 +376,7 @@
   .r-header__contact {
     text-align: right;
     font-size: 0.68rem;
-    color: #334155;
+    color: var(--resume-contact);
     line-height: 1.35;
     white-space: nowrap;
   }
@@ -341,28 +400,28 @@
     text-align: center;
     font-size: 0.6rem;
     font-weight: 850;
-    color: #1f2937;
-    background: linear-gradient(180deg, #fff7dc, #fffdf8);
+    color: var(--resume-metric-text);
+    background: var(--resume-metric-bg);
   }
 
   .r-metric:nth-child(2) {
     border-color: #99f6e4;
-    background: linear-gradient(180deg, #ecfdf5, #fffdf8);
+    background: var(--resume-metric-green-bg);
   }
 
   .r-metric:nth-child(3) {
     border-color: #bfdbfe;
-    background: linear-gradient(180deg, #eff6ff, #fffdf8);
+    background: var(--resume-metric-blue-bg);
   }
 
   .r-metric:nth-child(4) {
     border-color: #fed7aa;
-    background: linear-gradient(180deg, #fff7ed, #fffdf8);
+    background: var(--resume-metric-orange-bg);
   }
 
   .r-metric:nth-child(5) {
     border-color: #ddd6fe;
-    background: linear-gradient(180deg, #f5f3ff, #fffdf8);
+    background: var(--resume-metric-purple-bg);
   }
 
   /* ---- Two-column grid ---- */
@@ -378,7 +437,7 @@
     border: 1.2px solid #bfd8d4;
     border-radius: 8px;
     padding: 0.55rem;
-    background: linear-gradient(180deg, #f0fdfa, #fffdf8);
+    background: var(--resume-panel-bg);
     box-shadow: inset 3px 0 0 var(--accent);
   }
 
@@ -396,7 +455,7 @@
     font-size: 0.78rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #0f172a;
+    color: var(--resume-heading);
   }
 
   .r-block h2::after {
@@ -411,14 +470,14 @@
   .r-block h3 {
     margin: 0;
     font-size: 0.78rem;
-    color: #1e293b;
+    color: var(--resume-heading);
     line-height: 1.2;
   }
 
   .r-block p {
     margin: 0.15rem 0 0;
     font-size: 0.7rem;
-    color: #525252;
+    color: var(--resume-copy);
   }
 
   .r-block ul {
@@ -430,7 +489,7 @@
   .r-block li {
     margin-bottom: 0.15rem;
     padding-left: 0.1rem;
-    color: #374151;
+    color: var(--resume-body);
   }
 
   .r-block li::marker {
@@ -467,15 +526,15 @@
     font-size: 0.6rem;
     font-weight: 700;
     border: 1px solid #c5cfc6;
-    background: #eef1ee;
-    color: #3d4d3e;
+    background: var(--resume-chip-bg);
+    color: var(--resume-chip-text);
   }
 
   /* ── 莫兰蒂绿 — AI / LLM (苔藓绿 sage) ── */
   .r-skill-group--green .r-chip {
     border: 1px solid #9fb8a0;
-    background: linear-gradient(135deg, #e8f0e9, #f3f7f3);
-    color: #2d4a31;
+    background: var(--resume-chip-green-bg);
+    color: var(--resume-chip-green-text);
   }
 
   .r-skill-group--green h3 {
@@ -485,8 +544,8 @@
   /* ── 莫兰蒂蓝 — Modem / Tx (雾霾蓝 dusty slate) ── */
   .r-skill-group--blue .r-chip {
     border: 1px solid #8da8c0;
-    background: linear-gradient(135deg, #e4ecf4, #f1f5f9);
-    color: #243d56;
+    background: var(--resume-chip-blue-bg);
+    color: var(--resume-chip-blue-text);
   }
 
   .r-skill-group--blue h3 {
@@ -496,8 +555,8 @@
   /* ── 莫兰蒂黄 — RF Hardware / EDA (小麦金 warm wheat) ── */
   .r-skill-group--amber .r-chip {
     border: 1px solid #c8aa74;
-    background: linear-gradient(135deg, #f5ecda, #faf6ee);
-    color: #5a3e1b;
+    background: var(--resume-chip-amber-bg);
+    color: var(--resume-chip-amber-text);
   }
 
   .r-skill-group--amber h3 {
@@ -509,7 +568,7 @@
     border-left: 2px solid #d4af37;
     padding-left: 0.55rem;
     margin-bottom: 0.35rem;
-    background: #fffaf0;
+    background: var(--resume-edu-bg);
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
   }
@@ -526,7 +585,7 @@
     display: block;
     margin-top: 0.1rem;
     font-size: 0.65rem;
-    color: #4b3f2b;
+    color: var(--resume-strong);
   }
 
   /* ---- Timeline items ---- */
@@ -536,19 +595,19 @@
     border: 1px solid #dbeafe;
     border-left: 3px solid #2563eb;
     border-radius: 7px;
-    background: linear-gradient(180deg, #f8fbff, #fffdf8);
+    background: var(--resume-timeline-blue-bg);
   }
 
   .r-timeline-item:nth-child(2) {
     border-color: #ccfbf1;
     border-left-color: var(--accent);
-    background: linear-gradient(180deg, #f0fdfa, #fffdf8);
+    background: var(--resume-timeline-green-bg);
   }
 
   .r-timeline-item:nth-child(3) {
     border-color: #fde68a;
     border-left-color: #d4af37;
-    background: linear-gradient(180deg, #fffbeb, #fffdf8);
+    background: var(--resume-timeline-amber-bg);
   }
 
   .r-timeline-head {
@@ -565,7 +624,7 @@
   .r-timeline-head span {
     font-size: 0.65rem;
     font-weight: 800;
-    color: #6f6250;
+    color: var(--resume-muted);
     white-space: nowrap;
     text-align: right;
   }
@@ -579,7 +638,7 @@
     border: 1px solid #e5ddd1;
     border-radius: 7px;
     padding: 0.4rem 0.55rem;
-    background: linear-gradient(180deg, #fffaf0, #fffdf8);
+    background: var(--resume-pub-bg);
   }
 
   .r-pub-card a {

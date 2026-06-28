@@ -607,7 +607,7 @@ pre {
     background: #fff;
     margin: 0;
     padding: 0;
-    font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    font-family: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
