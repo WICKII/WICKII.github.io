@@ -20,6 +20,13 @@ const canonicalUrl = Astro.url.href;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Inline theme init: runs before render to prevent flash -->
+    <script is:inline>
+      (function() {
+        var t = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
     <meta name="description" content={description} />
     <meta name="keywords" content={siteConfig.keywords.join(", ")} />
     <meta name="theme-color" content="#000000" />

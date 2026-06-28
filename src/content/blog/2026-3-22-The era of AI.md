@@ -3,7 +3,7 @@ title:      The Era of AI
 subtitle:   
 date:       2026-3-22
 author:     WICKII
-header-img: img/coco.jpg
+header-img: img/post-bg-programming-min.jpg
 catalog: true
 tags:
     - Tech
