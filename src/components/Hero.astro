@@ -19,6 +19,6 @@ const { title, description, image, eyebrow, meta, compact = false } = Astro.prop
     {eyebrow && <p class="hero__eyebrow">{eyebrow}</p>}
     <h1>{title}</h1>
     {description && <p class="hero__description">{description}</p>}
-    {meta && <div class="hero__meta" set:html={meta} />}
+    {meta && <p class="hero__meta">{meta}</p>}
   </div>
 </section>

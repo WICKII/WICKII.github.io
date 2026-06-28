@@ -29,7 +29,14 @@ const meta = [
 ].join(" · ");
 ---
 
-<BaseLayout title={post.data.title} description={post.data.subtitle || post.body.slice(0, 120)} image={`/${post.data["header-img"] ?? "img/desk1.jpg"}`}>
+<BaseLayout
+  title={post.data.title}
+  description={post.data.subtitle || post.body.slice(0, 120)}
+  image={`/${post.data["header-img"] ?? "img/desk1.jpg"}`}
+  ogType="article"
+  publishedDate={post.data.date}
+  tags={post.data.tags}
+>
   <Hero
     title={post.data.title}
     description={post.data.subtitle}

@@ -1,7 +1,7 @@
 {
-  "name": "Hux Blog",
-  "short_name": "Hux Blog",
-  "description": "About an engineer & designer who loves web.",
+  "name": "WICKII Blog",
+  "short_name": "WICKII",
+  "description": "RF engineer writing about hardware, work, and life.",
   "icons": [{
     "src": "icons/128.png",
     "sizes": "128x128",
@@ -11,8 +11,8 @@
     "sizes": "512x512",
     "type": "image/png"
   }],
-  "background_color": "#fff",
-  "theme_color": "#000",
+  "background_color": "#0e0e0f",
+  "theme_color": "#2dd4bf",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait"

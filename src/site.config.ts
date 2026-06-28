@@ -27,14 +27,5 @@ export const siteConfig = {
     { title: "简书·WICKII", href: "https://www.jianshu.com/u/dce56a33daf1" },
     { title: "简书·lifesmily", href: "https://www.jianshu.com/u/e87b13f1f05c" },
     { title: "Yuan Blog", href: "https://dodoyuan.github.io/" }
-  ],
-  gitalk: {
-    enabled: true,
-    clientID: "133b9dc1e1a48395b801",
-    clientSecret: "2a8a3b05440b3f875d1fed164e1b447772324f44",
-    repo: "WICKII.github.io",
-    owner: "WICKII",
-    admin: "WICKII",
-    distractionFreeMode: true
-  }
+  ]
 } as const;

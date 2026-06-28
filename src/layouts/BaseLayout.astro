@@ -8,9 +8,12 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  ogType?: "website" | "article";
+  publishedDate?: Date;
+  tags?: string[];
 }
 
-const { title, description = siteConfig.description, image = siteConfig.heroImage } = Astro.props;
+const { title, description = siteConfig.description, image = siteConfig.heroImage, ogType = "website", publishedDate, tags } = Astro.props;
 const pageTitle = title ? `${title} | ${siteConfig.seoTitle}` : siteConfig.seoTitle;
 const canonicalUrl = Astro.url.href;
 ---
@@ -43,9 +46,11 @@ const canonicalUrl = Astro.url.href;
     <meta property="og:site_name" content={siteConfig.title} />
     <meta property="og:title" content={title ?? siteConfig.title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={new URL(image, Astro.site).toString()} />
+    {ogType === "article" && publishedDate && <meta property="article:published_time" content={publishedDate.toISOString()} />}
+    {ogType === "article" && tags?.map((t) => <meta property="article:tag" content={t} />)}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title ?? siteConfig.title} />
     <meta name="twitter:description" content={description} />

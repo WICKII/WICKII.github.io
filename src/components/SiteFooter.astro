@@ -17,15 +17,4 @@ import { siteConfig } from "../site.config";
   </div>
 </footer>
 
-<script>
-  const navToggle = document.querySelector("[data-nav-toggle]");
-  const navPanel = document.querySelector("[data-nav-panel]");
 
-  if (navToggle instanceof HTMLButtonElement && navPanel instanceof HTMLElement) {
-    navToggle.addEventListener("click", () => {
-      const expanded = navToggle.getAttribute("aria-expanded") === "true";
-      navToggle.setAttribute("aria-expanded", String(!expanded));
-      navPanel.classList.toggle("is-open");
-    });
-  }
-</script>

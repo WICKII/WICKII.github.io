@@ -44,22 +44,25 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
-  // Apply theme immediately to avoid flash — runs before paint
-  const saved = localStorage.getItem("theme");
-  const theme = saved ?? "dark";
-  document.documentElement.setAttribute("data-theme", theme);
+  // Nav toggle
+  const navToggle = document.querySelector("[data-nav-toggle]");
+  const navPanel = document.querySelector("[data-nav-panel]");
+  if (navToggle instanceof HTMLButtonElement && navPanel instanceof HTMLElement) {
+    navToggle.addEventListener("click", () => {
+      const expanded = navToggle.getAttribute("aria-expanded") === "true";
+      navToggle.setAttribute("aria-expanded", String(!expanded));
+      navPanel.classList.toggle("is-open");
+    });
+  }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("theme-toggle");
-    if (!btn) return;
-
+  // Theme toggle
+  const btn = document.getElementById("theme-toggle");
+  if (btn) {
     function updateIcon(t: string) {
-      document.querySelector(".theme-toggle__icon--sun")!.setAttribute(
-        "style", t === "dark" ? "display:none" : ""
-      );
-      document.querySelector(".theme-toggle__icon--moon")!.setAttribute(
-        "style", t === "dark" ? "" : "display:none"
-      );
+      const sun = document.querySelector(".theme-toggle__icon--sun") as HTMLElement | null;
+      const moon = document.querySelector(".theme-toggle__icon--moon") as HTMLElement | null;
+      if (sun) sun.style.display = t === "dark" ? "none" : "";
+      if (moon) moon.style.display = t === "dark" ? "" : "none";
     }
 
     updateIcon(document.documentElement.getAttribute("data-theme") ?? "dark");
@@ -71,7 +74,7 @@ const currentPath = Astro.url.pathname;
       localStorage.setItem("theme", next);
       updateIcon(next);
     });
-  });
+  }
 </script>
 
 <style>
